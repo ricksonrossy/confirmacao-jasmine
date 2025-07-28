@@ -1,0 +1,242 @@
+    /* Fundo com estrelas animadas */
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: radial-gradient(#0b0f2f, #000);
+        overflow: hidden;
+        color: white;
+        position: relative;
+        height: 100vh;
+    }
+
+    .stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        background: url('https://raw.githubusercontent.com/JulianLaval/canvas-space/master/stars.png') repeat;
+        animation: moveStars 100s linear infinite;
+        z-index: -2;
+    }
+
+    @keyframes moveStars {
+        from {
+            background-position: 0 0;
+        }
+
+        to {
+            background-position: -1000px 1000px;
+        }
+    }
+
+    /* Estrelas cadentes */
+    .shooting-star {
+        position: fixed;
+        top: -10px;
+        width: 3px;
+        height: 100px;
+        background: linear-gradient(-45deg, white, rgba(255, 255, 255, 0));
+        border-radius: 50%;
+        filter: drop-shadow(0 0 6px white);
+        animation-timing-function: linear;
+        animation-name: shooting;
+        animation-iteration-count: infinite;
+        z-index: -1;
+        opacity: 0;
+    }
+
+    @keyframes shooting {
+        0% {
+            transform: translateX(0) translateY(0) rotate(45deg);
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateX(-500px) translateY(500px) rotate(45deg);
+            opacity: 0;
+        }
+    }
+
+    /* Diferentes delays e posições para as estrelas cadentes */
+    .shooting-star:nth-child(1) {
+        left: 80%;
+        animation-duration: 1s;
+        animation-delay: 0s;
+    }
+
+    .shooting-star:nth-child(2) {
+        left: 50%;
+        animation-duration: 1.5s;
+        animation-delay: 3s;
+    }
+
+    .shooting-star:nth-child(3) {
+        left: 70%;
+        animation-duration: 1.8s;
+        animation-delay: 5s;
+    }
+
+    .shooting-star:nth-child(4) {
+        left: 40%;
+        animation-duration: 2.2s;
+        animation-delay: 7s;
+    }
+
+    .shooting-star:nth-child(5) {
+        left: 90%;
+        animation-duration: 1.7s;
+        animation-delay: 10s;
+    }
+
+    /* Caixa do formulário */
+    .container {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 30px;
+        max-width: 400px;
+        margin: 100px auto;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 0 20px #fff4;
+        position: relative;
+        z-index: 1;
+    }
+
+    h1 {
+        font-family: 'Merriweather', serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: #dfaef1;
+        /* lilás mais escuro */
+        text-align: center;
+        letter-spacing: 4px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        /* Uma linha fina abaixo para dar destaque */
+        position: relative;
+        padding-bottom: 12px;
+        max-width: max-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h1::after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 4px;
+        color: #dfaef1;
+        background-color: #dfaef1;
+        /* lilás complementar */
+        left: 25%;
+        bottom: 0;
+        border-radius: 2px;
+    }
+
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        font-size: 1rem;
+        text-align: center;
+        letter-spacing: 2px;
+        text-transform: capitalize;
+        position: relative;
+        padding-bottom: 8px;
+        color: #dfaef1;
+        /* lilás elegante */
+        max-width: max-content;
+        margin: 0 auto 30px auto;
+    }
+
+    h2::after {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 3px;
+        background-color: #dfaef1;
+        /* linha discreta lilás */
+        left: 30%;
+        bottom: 0;
+        border-radius: 2px;
+    }
+
+    label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 8px;
+        border: none;
+        font-size: 1em;
+    }
+
+    input,
+    select,
+    textarea {
+        background: #fff;
+        color: #000;
+    }
+
+    button {
+        background: #ff6f61;
+        color: white;
+        cursor: pointer;
+        transition: background 0.3s;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: #e85c50;
+    }
+
+    .success-message {
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold;
+        display: none;
+    }
+
+    .success-message.success {
+        color: #90ee90;
+    }
+
+    .success-message.error {
+        color: #ff6f61;
+    }
+
+    /* Spinner pequeno dentro do botão */
+    .spinner {
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top: 3px solid white;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        animation: spin 1s linear infinite;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 8px;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Estilo do botão desabilitado */
+    button:disabled {
+        background: #aaa;
+        cursor: not-allowed;
+    }
