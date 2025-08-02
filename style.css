@@ -1,12 +1,28 @@
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
     /* Fundo com estrelas animadas */
     body {
-        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(ellipse at bottom, #0d1a3a 0%, #000000 100%);
         font-family: 'Segoe UI', sans-serif;
-        background: radial-gradient(#0b0f2f, #000);
+        perspective: 1000px;
         color: white;
-        position: relative;
-        min-height: 100vh;
+        overflow-x: hidden;
+        /* Impede rolagem lateral */
         overflow-y: auto;
+        /* Permite rolagem vertical */
+        min-height: 100vh;
+        /* overflow-y: auto;*/
+        position: relative;
+        flex-direction: column;
+        padding: 40px 20px;
 
     }
 
@@ -37,7 +53,7 @@
         top: -10px;
         width: 3px;
         height: 100px;
-        background: linear-gradient(-45deg, white, rgba(255, 255, 255, 0));
+        background: linear-gradient(-10deg, white, rgba(255, 255, 255, 0));
         border-radius: 50%;
         filter: drop-shadow(0 0 6px white);
         animation-timing-function: linear;
@@ -94,17 +110,49 @@
         animation-delay: 10s;
     }
 
+    .shooting-star:nth-child(6) {
+        left: 80%;
+        animation-duration: 1s;
+        animation-delay: 0s;
+    }
+
+    .shooting-star:nth-child(7) {
+        left: 50%;
+        animation-duration: 1.5s;
+        animation-delay: 3s;
+    }
+
+    .shooting-star:nth-child(8) {
+        left: 70%;
+        animation-duration: 1.8s;
+        animation-delay: 5s;
+    }
+
+    .shooting-star:nth-child(9) {
+        left: 40%;
+        animation-duration: 2.2s;
+        animation-delay: 7s;
+    }
+
+    .shooting-star:nth-child(10) {
+        left: 90%;
+        animation-duration: 1.7s;
+        animation-delay: 10s;
+    }
+
     /* Caixa do formulário */
     .container {
         background: rgba(255, 255, 255, 0.1);
         border-radius: 20px;
         padding: 30px;
+        width: 100vw;
         max-width: 400px;
-        margin: 20px auto;
+        width: 100%;
         backdrop-filter: blur(8px);
         box-shadow: 0 0 20px #fff4;
-        position: relative;
         z-index: 1;
+        margin: auto;
+        /* <- isso aqui centraliza certinho dentro do flex */
     }
 
     h1 {
@@ -340,4 +388,175 @@
     button {
         background: linear-gradient(135deg, #ff6f61, #ff9472);
         box-shadow: inset 0 0 0 transparent, 0 4px 12px rgba(255, 111, 97, 0.3);
+    }
+
+
+    /*Sistema Solar*/
+    .solar-container {
+        position: absolute;
+        width: 100%;
+        height: 80%;
+        transform-style: preserve-3d;
+        transition: transform 0.1s ease-out;
+    }
+
+    .planet {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.9;
+        animation: float 30s infinite ease-in-out alternate;
+    }
+
+    /* Sol */
+    .sun {
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle at 30% 30%, #ffdd00, #ff6600);
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        animation: pulse 5s infinite;
+    }
+
+    /* Planetas */
+    .mercury {
+        width: 20px;
+        height: 20px;
+        background: #a9a9a9;
+        top: 20%;
+        left: 30%;
+        animation-delay: 0s;
+    }
+
+    .venus {
+        width: 25px;
+        height: 25px;
+        background: #e6b800;
+        top: 35%;
+        left: 40%;
+        animation-delay: 2s;
+    }
+
+    .earth {
+        width: 28px;
+        height: 28px;
+        background: radial-gradient(circle at 30% 30%, #00f, #006);
+        top: 45%;
+        left: 50%;
+        animation-delay: 4s;
+    }
+
+    .mars {
+        width: 24px;
+        height: 24px;
+        background: #b22222;
+        top: 60%;
+        left: 60%;
+        animation-delay: 6s;
+    }
+
+    .jupiter {
+        width: 50px;
+        height: 50px;
+        background: #d2b48c;
+        top: 25%;
+        left: 70%;
+        animation-delay: 8s;
+    }
+
+    .saturn {
+        width: 44px;
+        height: 44px;
+        background: #deb887;
+        top: 70%;
+        left: 30%;
+        animation-delay: 10s;
+    }
+
+    .uranus {
+        width: 36px;
+        height: 36px;
+        background: #87ceeb;
+        top: 20%;
+        left: 80%;
+        animation-delay: 12s;
+    }
+
+    .neptune {
+        width: 32px;
+        height: 32px;
+        background: #4169e1;
+        top: 65%;
+        left: 85%;
+        animation-delay: 14s;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0) rotate(0deg);
+        }
+
+        100% {
+            transform: translateY(-15px) rotate(360deg);
+        }
+    }
+
+    @keyframes pulse {
+
+        0%,
+        100% {
+            transform: scale(1) translateY(-50%);
+        }
+
+        50% {
+            transform: scale(1.1) translateY(-50%);
+        }
+    }
+
+
+
+    .form-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        padding: 40px;
+        flex-wrap: wrap;
+    }
+
+    .image-side {
+        flex: 1;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .imagem-lateral {
+        width: 100%;
+        max-width: 300px;
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .form-box {
+        flex: 2;
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 30px;
+        border-radius: 16px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+    /* Efeito de flutuar */
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
     }

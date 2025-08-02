@@ -8,55 +8,90 @@
   <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" /> -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
 </head>
 
 <body>
-  <div class="stars"></div>
+  <!-- sistema solar -->
+  <div class="solar-container" id="solarContainer">
+    <div class="planet sun"></div>
+    <div class="planet mercury"></div>
+    <div class="planet venus"></div>
+    <div class="planet earth"></div>
+    <div class="planet mars"></div>
+    <div class="planet jupiter"></div>
+    <div class="planet saturn"></div>
+    <div class="planet uranus"></div>
+    <div class="planet neptune"></div>
+  </div>
 
-  <!-- Estrelas cadentes -->
-  <div class="shooting-star"></div>
-  <div class="shooting-star"></div>
-  <div class="shooting-star"></div>
-  <div class="shooting-star"></div>
-  <div class="shooting-star"></div>
+  <!-- estrelas cadentes -->
+  <div class="stars">
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+  </div>
+  <div class="form-wrapper">
+    <div class="image-side">
+      <img src="/assets/fim.png" alt="Astronauta" class="imagem-lateral" />
+    </div>
 
-  <div class="container">
-    <h1>1º Aninho de Jasmine Aya</h1>
-    <h2>Confirmação de Presença</h2>
-    <form id="formulario">
-      <label>Seu nome:</label>
-      <input type="text" name="nome" required />
+    <div class="form-box">
+      <div class="container">
+        <h1>1º Aninho de Jasmine Aya</h1>
+        <h2>Confirmação de Presença</h2>
+        <h3>A comemoração será em Maués-AM, no dia 13 de Setembro a noite,
+          após a confirmação de sua presença, recebera novas instruções!</h3>
+        <form id="formulario">
+          <label>Seu nome:</label>
+          <input type="text" name="nome" required />
 
-      <label>Telefone/WhatsApp:</label>
-      <input type="tel" name="telefone" required />
+          <label>Telefone/WhatsApp:</label>
+          <input type="tel" name="telefone" required />
 
-      <label>Você virá à festa?</label>
-      <select name="presenca" required>
-        <option value="">Selecione</option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
-      </select>
+          <label>Você virá à festa?</label>
+          <select name="presenca" required>
+            <option value="">Selecione</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
 
-      <label>Quantas pessoas virão com você?</label>
-      <select name="quantidade" required>
-        <option value="">Selecione</option>
-        <option value="0">Só eu</option>
-        <option value="1">1 acompanhante</option>
-        <option value="2">2 acompanhantes</option>
-        <option value="3+">3 ou mais</option>
-      </select>
+          <label>Quantas pessoas virão com você?</label>
+          <select name="quantidade" required>
+            <option value="">Selecione</option>
+            <option value="0">Só eu</option>
+            <option value="1">1 acompanhante</option>
+            <option value="2">2 acompanhantes</option>
+            <option value="3+">3 ou mais</option>
+          </select>
 
-      <label>Nome de cada acompanhante:</label>
-      <textarea name="nomesAcompanhantes" rows="3"
-        placeholder="Separe por vírgulas, se houver. Ex: Rickson (Adulto), Paula (Adulto), Jasmine (Criança)"></textarea>
+          <label>Nome de cada acompanhante:</label>
+          <textarea name="nomesAcompanhantes" rows="3"
+            placeholder="Separe por vírgulas, se houver. Ex: Rickson (Adulto), Paula (Adulto), Jasmine (Criança)"></textarea>
 
-      <button type="submit">Confirmar presença</button>
-    </form>
+          <button type="submit">Confirmar presença</button>
+        </form>
 
-    <div class="success-message" id="mensagem"></div>
+        <div class="success-message" id="mensagem"></div>
+      </div>
+    </div>
+
+    <div class="image-side">
+      <img src="/assets/nave.png" alt="Nave Espacial" class="imagem-lateral" />
+    </div>
+
+
   </div>
 
   <script src="script.js"></script>
+  <script src="script-background.js"></script>
 
 </body>
 
