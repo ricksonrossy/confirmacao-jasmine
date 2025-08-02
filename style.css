@@ -1,6 +1,6 @@
     html,
     body {
-        height: 100%;
+       /* height: 100%;*/
         margin: 0;
         padding: 0;
     }
@@ -14,7 +14,7 @@
         font-family: 'Segoe UI', sans-serif;
         perspective: 1000px;
         color: white;
-        overflow-x: hidden;
+        /*overflow-x: hidden;*/
         /* Impede rolagem lateral */
         overflow-y: auto;
         /* Permite rolagem vertical */
@@ -562,25 +562,48 @@
     }
 
 
-@media (max-width: 768px) {
-  .form-wrapper {
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px 10px;
-  }
+ @media (max-width: 768px) {
+        body {
+            min-height: 100vh;
+            overflow-y: auto !important;
+        }
 
-  .image-side {
-    max-width: 100%;
-    order: -1; /* Coloca o astronauta acima do formulário */
-  }
+        .form-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            gap: 20px;
+            flex-wrap: nowrap;
+        }
 
-  .imagem-lateral {
-    max-width: 70%;
-    height: auto;
-  }
+        .image-side:first-of-type {
+            order: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+            margin-top: 0;
+        }
 
-  .form-box {
-    width: 100%;
-    padding: 20px;
-  }
-}
+        .form-box {
+            order: 1;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .image-side:last-of-type {
+            order: 2;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 30px;
+        }
+
+        .imagem-lateral {
+            max-width: 70%;
+            height: auto;
+            display: block;
+        }
+    }
